@@ -1,0 +1,71 @@
+@import url('style.css');
+
+body.admin-body { background: var(--color-ivory); overflow-x: hidden; }
+
+.login-screen {
+  min-height: 100vh; display: grid; place-items: center; padding: 2rem;
+}
+.login-card {
+  background: var(--color-white); padding: 2.5rem; max-width: 460px; width: 100%;
+  border: 1px solid var(--color-border); box-shadow: var(--shadow);
+}
+.login-card .field { margin-bottom: 1rem; }
+
+.dashboard { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
+
+.sidebar {
+  background: var(--color-midnight); color: var(--color-ivory);
+  padding: 1.5rem 1rem; display: flex; flex-direction: column; gap: 0.4rem;
+  position: sticky; top: 0; height: 100vh; overflow-y: auto;
+}
+.sidebar-brand { display: flex; align-items: center; gap: 0.6rem; padding: 0.4rem 0.6rem 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.12); margin-bottom: 0.6rem; }
+.sidebar-brand .brand-mark { background: var(--color-bronze); }
+.sidebar-brand .brand-name { color: var(--color-ivory); font-size: 0.78rem; }
+.sidebar-nav { display: flex; flex-direction: column; gap: 0.2rem; flex: 1; }
+.side-link {
+  background: none; border: none; color: rgba(255,255,255,0.75);
+  text-align: left; padding: 0.7rem 0.8rem; font-size: 0.85rem; letter-spacing: 0.04em;
+  border-left: 3px solid transparent; transition: all .15s ease;
+}
+.side-link:hover { color: var(--color-ivory); background: rgba(255,255,255,0.06); }
+.side-link.active { color: var(--color-ivory); border-left-color: var(--color-bronze-soft); background: rgba(255,255,255,0.08); }
+.side-logout { margin-top: auto; color: var(--color-bronze-soft); }
+
+.dash-main { display: flex; flex-direction: column; min-width: 0; }
+.dash-header {
+  background: var(--color-white); border-bottom: 1px solid var(--color-border);
+  padding: 1rem var(--gutter); display: flex; align-items: center; gap: 1rem;
+  position: sticky; top: 0; z-index: 10;
+}
+.dash-header h2 { font-family: var(--font-serif); font-size: 1.4rem; color: var(--color-midnight); margin: 0; flex: 1; font-weight: 500; }
+.demo-badge { background: var(--color-bronze); color: #fff; font-size: 0.7rem; letter-spacing: 0.12em; padding: 0.3rem 0.6rem; font-weight: 600; }
+.dash-content { padding: 2rem var(--gutter); }
+
+.dash-section {  }
+.metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; }
+.metric { background: var(--color-white); border: 1px solid var(--color-border); padding: 1.2rem; }
+.metric-label { display: block; font-size: 0.72rem; letter-spacing: 0.1em; color: var(--color-grey); text-transform: uppercase; margin-bottom: 0.4rem; }
+.metric-value { font-size: 1.8rem; font-weight: 700; color: var(--color-midnight); font-family: var(--font-sans); }
+
+.toolbar { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1rem; align-items: center; }
+.toolbar input, .toolbar select { padding: 0.6rem 0.8rem; border: 1px solid var(--color-border); background: var(--color-white); }
+
+.table-wrap { overflow-x: auto; background: var(--color-white); border: 1px solid var(--color-border); }
+.dash-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.dash-table th, .dash-table td { padding: 0.7rem 0.8rem; border-bottom: 1px solid var(--color-border); text-align: left; vertical-align: top; }
+.dash-table th { background: var(--color-ivory); color: var(--color-midnight); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; }
+.dash-table tbody tr:hover { background: #FAF8F3; }
+.dash-table .actions { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+
+.form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+@media (max-width: 700px) { .form-grid { grid-template-columns: 1fr; } }
+
+.nav-toggle { display: none; background: none; border: none; padding: 0.5rem; }
+.nav-toggle span { display: block; width: 22px; height: 2px; background: var(--color-midnight); margin: 4px 0; }
+
+@media (max-width: 820px) {
+  .dashboard { grid-template-columns: 1fr; }
+  .sidebar { position: fixed; top: 0; left: 0; bottom: 0; transform: translateX(-100%); transition: transform .25s ease; z-index: 40; width: 260px; }
+  .sidebar.open { transform: translateX(0); }
+  .nav-toggle { display: block; }
+}

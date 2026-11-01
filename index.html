@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kimwanya Enterprises | Property Discovery in Migori County, Kenya</title>
+<meta name="description" content="Explore residential properties, land opportunities, and commercial spaces with Kimwanya Enterprises. A property discovery experience designed around your needs in Migori County, Kenya.">
+<meta property="og:title" content="Kimwanya Enterprises | Property Discovery">
+<meta property="og:description" content="Explore residential properties, land opportunities, and commercial spaces in Migori County, Kenya.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/images/img_1.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="announce" id="announceBar">DISCOVER PROPERTY OPPORTUNITIES WITH KIMWANYA ENTERPRISES</div>
+
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a href="index.html" class="brand" aria-label="Kimwanya Enterprises home">
+      <span class="brand-mark">K</span>
+      <span class="brand-name">KIMWANYA ENTERPRISES</span>
+    </a>
+    <nav class="main-nav" id="mainNav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="index.html#buy">Buy Property</a>
+      <a href="index.html#rent">Rent Property</a>
+      <a href="index.html#land">Land &amp; Plots</a>
+      <a href="index.html#commercial">Commercial</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <a href="admin.html" class="cta-list">LIST A PROPERTY</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-media">
+      <img src="assets/images/img_1.jpg" alt="Panorama of Migori town, Kenya" loading="eager">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <p class="eyebrow">PROPERTY. POSSIBILITY. PROGRESS.</p>
+      <h1 class="hero-title" id="heroHeadline">Find a Place to Belong. Discover a Place to Grow.</h1>
+      <p class="hero-sub" id="heroDesc">Explore residential properties, land opportunities, and commercial spaces with a property discovery experience designed around your needs.</p>
+      <div class="hero-ctas">
+        <a href="#listings" class="btn btn-primary">EXPLORE PROPERTIES</a>
+        <a href="#land" class="btn btn-ghost">DISCOVER LAND OPPORTUNITIES</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEARCH -->
+  <section class="search-section">
+    <div class="container">
+      <form id="searchForm" class="search-form" autocomplete="off">
+        <div class="field">
+          <label for="sCategory">Property category</label>
+          <select id="sCategory">
+            <option value="">Any category</option>
+            <option value="Houses">Houses</option>
+            <option value="Apartments">Apartments</option>
+            <option value="Land &amp; Plots">Land &amp; Plots</option>
+            <option value="Commercial">Commercial</option>
+            <option value="Other Property">Other Property</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="sTransaction">Transaction type</label>
+          <select id="sTransaction">
+            <option value="">Any type</option>
+            <option value="For Sale">For Sale</option>
+            <option value="For Rent">For Rent</option>
+            <option value="Land for Sale">Land for Sale</option>
+            <option value="Commercial Property">Commercial Property</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="sLocation">Location</label>
+          <select id="sLocation">
+            <option value="">Any location</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="sMinPrice">Minimum price (KSh)</label>
+          <input type="number" id="sMinPrice" min="0" placeholder="e.g. 500000">
+        </div>
+        <div class="field">
+          <label for="sMaxPrice">Maximum price (KSh)</label>
+          <input type="number" id="sMaxPrice" min="0" placeholder="e.g. 5000000">
+        </div>
+        <div class="field">
+          <label for="sBeds">Bedrooms</label>
+          <select id="sBeds">
+            <option value="">Any</option>
+            <option value="1">1+</option>
+            <option value="2">2+</option>
+            <option value="3">3+</option>
+            <option value="4">4+</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="sRef">Property reference</label>
+          <input type="text" id="sRef" placeholder="e.g. KE-2024-001">
+        </div>
+        <div class="field actions">
+          <button type="submit" class="btn btn-primary">SEARCH</button>
+          <button type="button" id="resetBtn" class="btn btn-outline">RESET</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FEATURED PROPERTIES -->
+  <section class="section" id="listings">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">CURATED SELECTION</p>
+          <h2 class="section-title">Featured Properties</h2>
+        </div>
+        <div class="sort-wrap">
+          <label for="sortSelect">Sort by</label>
+          <select id="sortSelect">
+            <option value="recent">Recently added</option>
+            <option value="priceAsc">Price: low to high</option>
+            <option value="priceDesc">Price: high to low</option>
+            <option value="name">Property name</option>
+          </select>
+        </div>
+      </div>
+      <p class="results-count" id="resultsCount"></p>
+      <div class="editorial-grid" id="propertyGrid"></div>
+      <div class="empty-state" id="emptyState" hidden>
+        <h3>No properties match your search</h3>
+        <p>Try adjusting your filters or reset the search to view all sample listings.</p>
+        <button class="btn btn-outline" id="emptyReset">RESET SEARCH</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- LAND & INVESTMENT -->
+  <section class="section section-alt" id="land">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">LAND &amp; INVESTMENT</p>
+          <h2 class="section-title">Plots and Development Opportunities</h2>
+          <p class="section-lead">Transparent presentation of plot size, location, and price. Every detail shown is illustrative for this demonstration.</p>
+        </div>
+      </div>
+      <div class="land-grid" id="landGrid"></div>
+    </div>
+  </section>
+
+  <!-- RENTALS -->
+  <section class="section" id="rent">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">RENTAL DISCOVERY</p>
+          <h2 class="section-title">Properties to Let</h2>
+        </div>
+      </div>
+      <div class="rental-grid" id="rentalGrid"></div>
+    </div>
+  </section>
+
+  <!-- COMPARISON -->
+  <section class="section section-alt" id="compareSection">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">COMPARE</p>
+          <h2 class="section-title">Property Comparison</h2>
+          <p class="section-lead">Select up to three properties to compare side by side.</p>
+        </div>
+      </div>
+      <div class="compare-bar" id="compareBar"></div>
+      <div class="compare-table-wrap" id="compareTableWrap"></div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section class="section" id="trust">
+    <div class="container narrow">
+      <p class="eyebrow">TRUST &amp; TRANSPARENCY</p>
+      <h2 class="section-title">Make Informed Property Decisions</h2>
+      <ul class="trust-list">
+        <li><strong>Understand the property details.</strong> Review size, location, and specifications carefully before committing.</li>
+        <li><strong>Ask questions before making commitments.</strong> Use the enquiry form to request clarification on any listing.</li>
+        <li><strong>Confirm ownership documentation independently.</strong> Verify titles and survey records through qualified professionals.</li>
+        <li><strong>Visit the property where appropriate.</strong> Physical inspection remains essential for significant decisions.</li>
+        <li><strong>Obtain qualified legal advice when needed.</strong> Engage an advocate for transaction documentation.</li>
+      </ul>
+      <p class="note">This demonstration does not claim that Kimwanya Enterprises performs legal verification or guarantees transactions. All listings shown are sample properties.</p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section section-alt" id="about">
+    <div class="container two-col">
+      <div>
+        <p class="eyebrow">ABOUT</p>
+        <h2 class="section-title" id="aboutTitle">Kimwanya Enterprises</h2>
+        <p id="aboutText">Kimwanya Enterprises is presented here as a property business concept based in Migori County, Kenya. This page is a demonstration that can be customized with information approved by the business owner. Verified company details, services, and history should replace this placeholder copy.</p>
+        <p class="note">No founding date, director names, registration status, or performance statistics are claimed, as these have not been verified.</p>
+      </div>
+      <div class="about-image">
+        <img src="assets/images/img_2.jpg" alt="Street scene in Migori County, Kenya" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="container two-col">
+      <div>
+        <p class="eyebrow">CONTACT</p>
+        <h2 class="section-title">Property Enquiries</h2>
+        <p id="contactText">Contact details for Kimwanya Enterprises have not been verified for this demonstration. Please replace the placeholder below with approved business contact information.</p>
+        <div class="contact-placeholder">
+          <p><strong>Business display name:</strong> Kimwanya Enterprises</p>
+          <p><strong>Location:</strong> Migori County, Kenya (placeholder)</p>
+          <p><strong>Phone:</strong> [Unverified placeholder — to be confirmed]</p>
+          <p><strong>Email:</strong> [Unverified placeholder — to be confirmed]</p>
+        </div>
+      </div>
+      <div>
+        <form id="contactForm" class="form-card" novalidate>
+          <div class="field">
+            <label for="cName">Full name *</label>
+            <input type="text" id="cName" required>
+          </div>
+          <div class="field">
+            <label for="cPhone">Phone number *</label>
+            <input type="tel" id="cPhone" required>
+          </div>
+          <div class="field">
+            <label for="cEmail">Email (optional)</label>
+            <input type="email" id="cEmail">
+          </div>
+          <div class="field">
+            <label for="cMethod">Preferred contact method</label>
+            <select id="cMethod">
+              <option value="Phone">Phone</option>
+              <option value="Email">Email</option>
+              <option value="WhatsApp">WhatsApp</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="cMessage">Message *</label>
+            <textarea id="cMessage" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" id="contactSubmit">SEND ENQUIRY</button>
+          <p class="form-feedback" id="contactFeedback"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <p class="brand-name footer-brand">KIMWANYA ENTERPRISES</p>
+      <p id="footerText">Property. Possibility. Progress.</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="property.html">Properties</a>
+      <a href="admin.html">Dashboard</a>
+    </div>
+  </div>
+  <div class="container footer-credit">
+    <p>Website concept designed by Thomas Hondo Chacha — Software Engineer.</p>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+  <button class="lb-prev" id="lbPrev" aria-label="Previous">&#10094;</button>
+  <img id="lbImg" src="" alt="">
+  <button class="lb-next" id="lbNext" aria-label="Next">&#10095;</button>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

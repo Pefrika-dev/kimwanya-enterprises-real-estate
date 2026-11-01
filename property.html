@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Property Details | Kimwanya Enterprises</title>
+<meta name="description" content="View detailed information about a property listing with Kimwanya Enterprises.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/property.css">
+</head>
+<body>
+<div class="announce" id="announceBar">DISCOVER PROPERTY OPPORTUNITIES WITH KIMWANYA ENTERPRISES</div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand" aria-label="Kimwanya Enterprises home">
+      <span class="brand-mark">K</span>
+      <span class="brand-name">KIMWANYA ENTERPRISES</span>
+    </a>
+    <nav class="main-nav" id="mainNav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="index.html#buy">Buy Property</a>
+      <a href="index.html#rent">Rent Property</a>
+      <a href="index.html#land">Land &amp; Plots</a>
+      <a href="index.html#commercial">Commercial</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <a href="admin.html" class="cta-list">LIST A PROPERTY</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main class="container property-page">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Home</a> <span>/</span> <a href="index.html#listings">Properties</a> <span>/</span> <span id="bcTitle">Property</span>
+  </nav>
+
+  <div id="propertyContent"></div>
+  <div id="propertyNotFound" hidden>
+    <h2>Property not found</h2>
+    <p>The requested property could not be located. It may have been removed or the reference is incorrect.</p>
+    <a class="btn btn-primary" href="index.html#listings">BACK TO LISTINGS</a>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <p class="brand-name footer-brand">KIMWANYA ENTERPRISES</p>
+      <p id="footerText">Property. Possibility. Progress.</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#listings">Properties</a>
+      <a href="admin.html">Dashboard</a>
+    </div>
+  </div>
+  <div class="container footer-credit">
+    <p>Website concept designed by Thomas Hondo Chacha — Software Engineer.</p>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+  <button class="lb-prev" id="lbPrev" aria-label="Previous">&#10094;</button>
+  <img id="lbImg" src="" alt="">
+  <button class="lb-next" id="lbNext" aria-label="Next">&#10095;</button>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/property.js"></script>
+</body>
+</html>
