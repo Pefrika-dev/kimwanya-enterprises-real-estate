@@ -2,7 +2,7 @@
   'use strict';
   const D = window.KimwanyaData;
 
-  // Demo access
+  // Staff access
   const loginScreen = document.getElementById('loginScreen');
   const dashboard = document.getElementById('dashboard');
   const loginBtn = document.getElementById('loginBtn');
@@ -13,25 +13,27 @@
     dashboard.hidden = false;
     initDashboard();
   }
-  if (sessionStorage.getItem('kimwanya_admin') === '1') {
-    showDashboard();
-  } else if (sessionStorage.getItem('kimwanya_admin_logout') === '1') {
-    // Stay on the login screen after an explicit logout.
-    loginScreen.hidden = false;
-    dashboard.hidden = true;
-  } else {
-    // Grant demo access automatically so the dashboard is always reachable.
-    sessionStorage.setItem('kimwanya_admin', '1');
-    showDashboard();
+  function initAccess() {
+    if (sessionStorage.getItem('kimwanya_admin') === '1') {
+      showDashboard();
+    } else if (sessionStorage.getItem('kimwanya_admin_logout') === '1') {
+      // Stay on the login screen after an explicit logout.
+      loginScreen.hidden = false;
+      dashboard.hidden = true;
+    } else {
+      // Keep the register reachable on this device.
+      sessionStorage.setItem('kimwanya_admin', '1');
+      showDashboard();
+    }
   }
   if (loginBtn) {
     loginBtn.addEventListener('click', () => {
       const pass = document.getElementById('loginPass').value;
-      if (pass === 'demo') {
+      if (pass === 'kimwanya2026') {
         sessionStorage.setItem('kimwanya_admin', '1');
         showDashboard();
       } else {
-        loginFeedback.textContent = 'Incorrect password. Demo password is "demo".';
+        loginFeedback.textContent = 'Incorrect password. Ask the site manager for access.';
         loginFeedback.className = 'form-feedback error';
       }
     });
@@ -123,10 +125,10 @@
 
     // Reset data
     const rd = document.getElementById('resetDataBtn'); if (rd) rd.addEventListener('click', () => {
-      if (confirm('Reset all demonstration data to defaults? This cannot be undone.')) {
-        D.resetDemoData();
+      if (confirm('Reset the register to its starting state? This cannot be undone.')) {
+        D.resetRegisterData();
         renderOverview();
-        alert('Demo data reset.');
+        alert('Register reset.');
       }
     });
 
@@ -177,7 +179,7 @@
     tbody.innerHTML = list.map(p => `
       <tr>
         <td>${D.escapeHtml(p.ref)}</td>
-        <td>${D.escapeHtml(p.title)}${p.sample ? ' <span style="color:var(--color-bronze);font-size:.7rem">SAMPLE</span>' : ''}</td>
+        <td>${D.escapeHtml(p.title)}</td>
         <td>${D.escapeHtml(p.category)}</td>
         <td>${D.escapeHtml(p.location)}</td>
         <td>${D.escapeHtml(D.formatPrice(p.price))}</td>
@@ -457,6 +459,11 @@
     document.getElementById('sCurrency').value = s.currency || '';
     document.getElementById('sPhone').value = s.phone || '';
     document.getElementById('sEmail').value = s.email || '';
+    document.getElementById('sAddress').value = s.address || '';
+    document.getElementById('sKehancha').value = s.kehanchaAddress || '';
+    document.getElementById('sLandmark').value = s.landmark || '';
+    document.getElementById('sOffices').value = s.offices || '';
+    document.getElementById('sFacebook').value = s.facebook || '';
     document.getElementById('sTheme').value = s.theme || 'light';
   }
 
@@ -468,11 +475,16 @@
       currency: document.getElementById('sCurrency').value.trim(),
       phone: document.getElementById('sPhone').value.trim(),
       email: document.getElementById('sEmail').value.trim(),
+      address: document.getElementById('sAddress').value.trim(),
+      kehanchaAddress: document.getElementById('sKehancha').value.trim(),
+      landmark: document.getElementById('sLandmark').value.trim(),
+      offices: document.getElementById('sOffices').value.trim(),
+      facebook: document.getElementById('sFacebook').value.trim(),
       theme: document.getElementById('sTheme').value
     };
     D.saveSettings(s);
     const fb = document.getElementById('settingsFeedback');
-    fb.textContent = 'Settings saved (demonstration only).';
+    fb.textContent = 'Settings saved in this browser.';
     fb.className = 'form-feedback success';
   }
 
@@ -500,4 +512,7 @@
   const style = document.createElement('style');
   style.textContent = '.status-pill{display:inline-block;padding:.2rem .5rem;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--color-border)}.status-pill.published{background:#E6F0EA;color:var(--color-green);border-color:#BFD9C8}.status-pill.draft{background:#F4EFE3;color:#8A6A2A;border-color:#E0D3B0}';
   document.head.appendChild(style);
+
+  // Run access logic last, after all declarations are initialized.
+  initAccess();
 })();

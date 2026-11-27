@@ -30,6 +30,11 @@ body.admin-body { background: var(--color-ivory); overflow-x: hidden; }
 .side-link:hover { color: var(--color-ivory); background: rgba(255,255,255,0.06); }
 .side-link.active { color: var(--color-ivory); border-left-color: var(--color-bronze-soft); background: rgba(255,255,255,0.08); }
 .side-logout { margin-top: auto; color: var(--color-bronze-soft); }
+.side-credit {
+  display: block; padding: 0.8rem 0.8rem 0.2rem; font-size: 0.7rem; letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.45); border-top: 1px solid rgba(255,255,255,0.12); margin-top: 0.8rem;
+}
+.side-credit:hover { color: var(--color-bronze-soft); }
 
 .dash-main { display: flex; flex-direction: column; min-width: 0; }
 .dash-header {
@@ -38,7 +43,7 @@ body.admin-body { background: var(--color-ivory); overflow-x: hidden; }
   position: sticky; top: 0; z-index: 10;
 }
 .dash-header h2 { font-family: var(--font-serif); font-size: 1.4rem; color: var(--color-midnight); margin: 0; flex: 1; font-weight: 500; }
-.demo-badge { background: var(--color-bronze); color: #fff; font-size: 0.7rem; letter-spacing: 0.12em; padding: 0.3rem 0.6rem; font-weight: 600; }
+.local-badge { background: var(--color-bronze); color: #fff; font-size: 0.7rem; letter-spacing: 0.12em; padding: 0.3rem 0.6rem; font-weight: 600; }
 .dash-content { padding: 2rem var(--gutter); }
 
 .dash-section {  }

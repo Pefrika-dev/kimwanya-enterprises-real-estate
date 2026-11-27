@@ -10,6 +10,19 @@
       const open = mainNav.classList.toggle('open');
       navToggle.setAttribute('aria-expanded', String(open));
     });
+    // Close the mobile menu after choosing a link so it does not sit over the page content.
+    mainNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mainNav.classList.contains('open')) {
+        mainNav.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
   }
 
   // Populate location filter
@@ -24,10 +37,6 @@
   }
 
   // Render helpers
-  function sampleBadge(p) {
-    return p.sample ? '<span class="card-badge sample">SAMPLE</span>' : '<span class="card-badge">LISTING</span>';
-  }
-
   function propertyCard(p, large) {
     const fav = D.isFavourite(p.id);
     const price = D.formatPrice(p.price);
@@ -41,7 +50,6 @@
       <article class="${cls}" data-id="${D.escapeHtml(p.id)}">
         <div class="card-media">
           <img src="${D.escapeHtml(p.images && p.images[0] ? p.images[0] : 'assets/images/img_1.jpg')}" alt="${D.escapeHtml(p.title)}" loading="lazy">
-          ${sampleBadge(p)}
         </div>
         <div class="card-body">
           <h3 class="card-title">${D.escapeHtml(p.title)}</h3>
@@ -105,7 +113,7 @@
     const published = D.publishedProperties();
     const filtered = applySort(applyFilters(published));
     const countEl = document.getElementById('resultsCount');
-    if (countEl) countEl.textContent = filtered.length + ' matching sample listing' + (filtered.length === 1 ? '' : 's') + '.';
+    if (countEl) countEl.textContent = filtered.length + ' listing' + (filtered.length === 1 ? '' : 's') + ' available to view.';
     const empty = document.getElementById('emptyState');
     if (filtered.length === 0) {
       grid.innerHTML = '';
@@ -131,7 +139,7 @@
       <article class="land-card card">
         <div class="card-media">
           <img src="${D.escapeHtml(p.images && p.images[0] ? p.images[0] : 'assets/images/img_1.jpg')}" alt="${D.escapeHtml(p.title)}" loading="lazy">
-          <span class="card-badge sample">SAMPLE</span>
+
         </div>
         <div class="card-body">
           <h3 class="card-title">${D.escapeHtml(p.title)}</h3>
@@ -167,7 +175,7 @@
       <article class="card">
         <div class="card-media">
           <img src="${D.escapeHtml(p.images && p.images[0] ? p.images[0] : 'assets/images/img_1.jpg')}" alt="${D.escapeHtml(p.title)}" loading="lazy">
-          <span class="card-badge sample">SAMPLE</span>
+
         </div>
         <div class="card-body">
           <h3 class="card-title">${D.escapeHtml(p.title)}</h3>
@@ -233,8 +241,7 @@
       ['Bathrooms', p => D.isLand(p) ? '—' : (p.bathrooms || '—')],
       ['Land size', p => p.landSize || '—'],
       ['Built-up area', p => p.builtUpArea || '—'],
-      ['Availability', p => p.availability],
-      ['Sample listing', p => p.sample ? 'Yes (illustrative)' : 'No']
+      ['Availability', p => p.availability]
     ];
     let html = '<table class="compare-table"><thead><tr><th>Attribute</th>';
     props.forEach(p => { html += '<th>' + D.escapeHtml(p.title) + '</th>'; });
@@ -279,7 +286,7 @@
     sortSelect.addEventListener('change', () => { currentSort = sortSelect.value; renderGrid(); });
   }
 
-  // Contact form
+  // Contact form — opens WhatsApp with the enquiry ready to send
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
@@ -290,7 +297,6 @@
       const method = document.getElementById('cMethod').value;
       const message = document.getElementById('cMessage').value.trim();
       const fb = document.getElementById('contactFeedback');
-      const btn = document.getElementById('contactSubmit');
       if (!name || !phone || !message) {
         fb.textContent = 'Please fill in all required fields.';
         fb.className = 'form-feedback error';
@@ -301,15 +307,19 @@
         fb.className = 'form-feedback error';
         return;
       }
-      btn.disabled = true;
-      setTimeout(() => {
-        const enq = { name, phone, email, method, message, propertyRef: 'General enquiry', source: 'contact' };
-        D.addEnquiry(enq);
-        contactForm.reset();
-        fb.textContent = 'Your enquiry has been saved in this demonstration. It has not been delivered to Kimwanya Enterprises.';
-        fb.className = 'form-feedback success';
-        btn.disabled = false;
-      }, 400);
+      const body = [
+        'Hello Kimwanya Enterprises, I have an enquiry.',
+        'Name: ' + name,
+        'Phone: ' + phone,
+        email ? 'Email: ' + email : '',
+        'Preferred contact: ' + method,
+        '',
+        message
+      ].filter(Boolean).join('\n');
+      const wa = (D.getSettings().phone || '+254 718 266967').replace(/[^0-9]/g, '');
+      fb.textContent = 'WhatsApp will open with your message ready to send.';
+      fb.className = 'form-feedback success';
+      window.open('https://wa.me/' + wa + '?text=' + encodeURIComponent(body), '_blank', 'noopener,noreferrer');
     });
   }
 
@@ -377,6 +387,19 @@
     const ann = document.getElementById('announceBar');
     if (ann) ann.textContent = c.announce;
     const settings = D.getSettings();
+    const phoneEl = document.getElementById('contactPhone');
+    if (phoneEl && settings.phone) {
+      phoneEl.textContent = settings.phone;
+      phoneEl.href = 'tel:' + settings.phone.replace(/[^+0-9]/g, '');
+    }
+    const addrEl = document.getElementById('contactAddress');
+    if (addrEl && settings.address) addrEl.textContent = settings.address;
+    const kehanchaEl = document.getElementById('contactKehancha');
+    if (kehanchaEl && settings.kehanchaAddress) kehanchaEl.textContent = settings.kehanchaAddress;
+    const landmarkEl = document.getElementById('contactLandmark');
+    if (landmarkEl && settings.landmark) landmarkEl.textContent = settings.landmark;
+    const officesEl = document.getElementById('contactOffices');
+    if (officesEl && settings.offices) officesEl.textContent = settings.offices;
     const nameEl = document.querySelector('.brand-name');
     // keep brand name fixed
   }

@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kimwanya Enterprises | Property Discovery in Migori County, Kenya</title>
-<meta name="description" content="Explore residential properties, land opportunities, and commercial spaces with Kimwanya Enterprises. A property discovery experience designed around your needs in Migori County, Kenya.">
-<meta property="og:title" content="Kimwanya Enterprises | Property Discovery">
-<meta property="og:description" content="Explore residential properties, land opportunities, and commercial spaces in Migori County, Kenya.">
+<title>Kimwanya Enterprises | Property & Multi-Agency Services in Migori, Kenya</title>
+<meta name="description" content="Kimwanya Enterprises — property management and sales, auctioneering, debt collection and agency services in Migori and Kehancha, Kenya.">
+<meta name="keywords" content="Kimwanya Enterprises, property management Migori, auctioneering Kenya, debt collection Migori, Kehancha property, land Kuria">
+<meta property="og:title" content="Kimwanya Enterprises | Property & Multi-Agency Services">
+<meta property="og:description" content="Property management, auctioneering, debt recovery and agency services in Migori and Kehancha, Kenya.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="assets/images/img_1.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,24 +16,22 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div class="announce" id="announceBar">DISCOVER PROPERTY OPPORTUNITIES WITH KIMWANYA ENTERPRISES</div>
+<div class="announce" id="announceBar">PROPERTY, AUCTIONEERING AND AGENCY SERVICES IN MIGORI &amp; KURIA</div>
 
-<header class="site-header" id="siteHeader">
+<header class="site-header">
   <div class="container header-inner">
     <a href="index.html" class="brand" aria-label="Kimwanya Enterprises home">
       <span class="brand-mark">K</span>
       <span class="brand-name">KIMWANYA ENTERPRISES</span>
     </a>
     <nav class="main-nav" id="mainNav" aria-label="Primary">
-      <a href="index.html">Home</a>
-      <a href="index.html#buy">Buy Property</a>
-      <a href="index.html#rent">Rent Property</a>
-      <a href="index.html#land">Land &amp; Plots</a>
-      <a href="index.html#commercial">Commercial</a>
-      <a href="index.html#about">About</a>
-      <a href="index.html#contact">Contact</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Property Views</a>
+      <a href="#process">How We Work</a>
+      <a href="#offices">Offices</a>
+      <a href="#contact">Contact</a>
     </nav>
-    <a href="admin.html" class="cta-list">LIST A PROPERTY</a>
+    <a href="https://wa.me/254718266967?text=Hello%20Kimwanya%20Enterprises%2C%20I%20would%20like%20to%20enquire." class="cta-list" target="_blank" rel="noopener noreferrer">WHATSAPP US</a>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -40,159 +39,131 @@
 </header>
 
 <main>
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-media">
       <img src="assets/images/img_1.jpg" alt="Panorama of Migori town, Kenya" loading="eager">
     </div>
     <div class="hero-overlay"></div>
     <div class="container hero-content">
-      <p class="eyebrow">PROPERTY. POSSIBILITY. PROGRESS.</p>
-      <h1 class="hero-title" id="heroHeadline">Find a Place to Belong. Discover a Place to Grow.</h1>
-      <p class="hero-sub" id="heroDesc">Explore residential properties, land opportunities, and commercial spaces with a property discovery experience designed around your needs.</p>
+      <p class="eyebrow">MIGORI · KEHANCHA · KURIA</p>
+      <h1 class="hero-title" id="heroHeadline">Property, Possibility, Progress.</h1>
+      <p class="hero-sub" id="heroDesc">Property management and sales, auctioneering, debt recovery and agency services across Migori and Kuria.</p>
       <div class="hero-ctas">
-        <a href="#listings" class="btn btn-primary">EXPLORE PROPERTIES</a>
-        <a href="#land" class="btn btn-ghost">DISCOVER LAND OPPORTUNITIES</a>
+        <a href="#services" class="btn btn-primary">OUR SERVICES</a>
+        <a href="#contact" class="btn btn-ghost">TALK TO THE OFFICE</a>
+      </div>
+      <div class="hero-meta" aria-label="Service areas">
+        <span>Residential &amp; commercial property</span>
+        <span>Land in Migori &amp; Kuria</span>
+        <span>Licensed auctioneering</span>
       </div>
     </div>
   </section>
 
-  <!-- SEARCH -->
-  <section class="search-section">
-    <div class="container">
-      <form id="searchForm" class="search-form" autocomplete="off">
-        <div class="field">
-          <label for="sCategory">Property category</label>
-          <select id="sCategory">
-            <option value="">Any category</option>
-            <option value="Houses">Houses</option>
-            <option value="Apartments">Apartments</option>
-            <option value="Land &amp; Plots">Land &amp; Plots</option>
-            <option value="Commercial">Commercial</option>
-            <option value="Other Property">Other Property</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="sTransaction">Transaction type</label>
-          <select id="sTransaction">
-            <option value="">Any type</option>
-            <option value="For Sale">For Sale</option>
-            <option value="For Rent">For Rent</option>
-            <option value="Land for Sale">Land for Sale</option>
-            <option value="Commercial Property">Commercial Property</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="sLocation">Location</label>
-          <select id="sLocation">
-            <option value="">Any location</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="sMinPrice">Minimum price (KSh)</label>
-          <input type="number" id="sMinPrice" min="0" placeholder="e.g. 500000">
-        </div>
-        <div class="field">
-          <label for="sMaxPrice">Maximum price (KSh)</label>
-          <input type="number" id="sMaxPrice" min="0" placeholder="e.g. 5000000">
-        </div>
-        <div class="field">
-          <label for="sBeds">Bedrooms</label>
-          <select id="sBeds">
-            <option value="">Any</option>
-            <option value="1">1+</option>
-            <option value="2">2+</option>
-            <option value="3">3+</option>
-            <option value="4">4+</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="sRef">Property reference</label>
-          <input type="text" id="sRef" placeholder="e.g. KE-2024-001">
-        </div>
-        <div class="field actions">
-          <button type="submit" class="btn btn-primary">SEARCH</button>
-          <button type="button" id="resetBtn" class="btn btn-outline">RESET</button>
-        </div>
-      </form>
-    </div>
-  </section>
-
-  <!-- FEATURED PROPERTIES -->
-  <section class="section" id="listings">
+  <section class="section" id="services">
     <div class="container">
       <div class="section-head">
         <div>
-          <p class="eyebrow">CURATED SELECTION</p>
-          <h2 class="section-title">Featured Properties</h2>
-        </div>
-        <div class="sort-wrap">
-          <label for="sortSelect">Sort by</label>
-          <select id="sortSelect">
-            <option value="recent">Recently added</option>
-            <option value="priceAsc">Price: low to high</option>
-            <option value="priceDesc">Price: high to low</option>
-            <option value="name">Property name</option>
-          </select>
+          <p class="eyebrow">WHAT WE DO</p>
+          <h2 class="section-title">Four areas of service</h2>
+          <p class="section-lead">Handled directly by the Migori and Kehancha offices, with terms confirmed before any engagement.</p>
         </div>
       </div>
-      <p class="results-count" id="resultsCount"></p>
-      <div class="editorial-grid" id="propertyGrid"></div>
-      <div class="empty-state" id="emptyState" hidden>
-        <h3>No properties match your search</h3>
-        <p>Try adjusting your filters or reset the search to view all sample listings.</p>
-        <button class="btn btn-outline" id="emptyReset">RESET SEARCH</button>
+      <div class="services-grid">
+        <article class="service-card">
+          <span class="service-index">01</span>
+          <h3>Property Management and Sales</h3>
+          <p>Connecting clients with rental homes, residential properties, and commercial or agricultural land across Migori and Kuria.</p>
+        </article>
+        <article class="service-card">
+          <span class="service-index">02</span>
+          <h3>Auctioneering</h3>
+          <p>Licensed auctioneering services for clients who need an asset sold through a structured process.</p>
+        </article>
+        <article class="service-card">
+          <span class="service-index">03</span>
+          <h3>Debt Collection</h3>
+          <p>Commercial and private debt recovery, handled with clear communication and proper documentation.</p>
+        </article>
+        <article class="service-card">
+          <span class="service-index">04</span>
+          <h3>Private Investigation and General Agencies</h3>
+          <p>Investigative services and general agency representation for clients who cannot attend in person.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- LAND & INVESTMENT -->
-  <section class="section section-alt" id="land">
+  <section class="scenery-band" aria-label="Migori and Kuria landscape">
+    <img src="assets/images/img_4.jpg" alt="" aria-hidden="true" loading="lazy">
+    <div class="scenery-overlay">
+      <div class="container">
+        <p class="eyebrow">ON THE GROUND</p>
+        <p class="scenery-title">Homes, land and farms across Migori &amp; Kuria</p>
+        <p class="scenery-note">Current availability and documentation are confirmed directly by the office.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="gallery">
     <div class="container">
       <div class="section-head">
         <div>
-          <p class="eyebrow">LAND &amp; INVESTMENT</p>
-          <h2 class="section-title">Plots and Development Opportunities</h2>
-          <p class="section-lead">Transparent presentation of plot size, location, and price. Every detail shown is illustrative for this demonstration.</p>
+          <p class="eyebrow">PROPERTY VIEWS</p>
+          <h2 class="section-title">Homes, land and farms</h2>
+          <p class="section-lead">A general view of property types across the region. Availability, titles and terms are confirmed directly on enquiry.</p>
         </div>
       </div>
-      <div class="land-grid" id="landGrid"></div>
+      <div class="gallery-grid">
+        <button class="gallery-card" type="button" onclick="openLightbox(['assets/images/gallery-1.jpg','assets/images/gallery-2.jpg','assets/images/gallery-3.jpg','assets/images/gallery-4.jpg'],0)" aria-label="View property image 1">
+          <img src="assets/images/gallery-1.jpg" alt="" loading="lazy">
+        </button>
+        <button class="gallery-card" type="button" onclick="openLightbox(['assets/images/gallery-1.jpg','assets/images/gallery-2.jpg','assets/images/gallery-3.jpg','assets/images/gallery-4.jpg'],1)" aria-label="View property image 2">
+          <img src="assets/images/gallery-2.jpg" alt="" loading="lazy">
+        </button>
+        <button class="gallery-card" type="button" onclick="openLightbox(['assets/images/gallery-1.jpg','assets/images/gallery-2.jpg','assets/images/gallery-3.jpg','assets/images/gallery-4.jpg'],2)" aria-label="View property image 3">
+          <img src="assets/images/gallery-3.jpg" alt="" loading="lazy">
+        </button>
+        <button class="gallery-card" type="button" onclick="openLightbox(['assets/images/gallery-1.jpg','assets/images/gallery-2.jpg','assets/images/gallery-3.jpg','assets/images/gallery-4.jpg'],3)" aria-label="View property image 4">
+          <img src="assets/images/gallery-4.jpg" alt="" loading="lazy">
+        </button>
+      </div>
+      <p class="gallery-hint">Select an image to view it at full size.</p>
     </div>
   </section>
 
-  <!-- RENTALS -->
-  <section class="section" id="rent">
+  <section class="section" id="process">
     <div class="container">
       <div class="section-head">
         <div>
-          <p class="eyebrow">RENTAL DISCOVERY</p>
-          <h2 class="section-title">Properties to Let</h2>
+          <p class="eyebrow">HOW WE WORK</p>
+          <h2 class="section-title">A clear path from enquiry to completion</h2>
         </div>
       </div>
-      <div class="rental-grid" id="rentalGrid"></div>
+      <div class="process-grid">
+        <article class="process-step">
+          <span class="process-num">01</span>
+          <h3>Tell us what you need</h3>
+          <p>Call, message WhatsApp, or send the enquiry form with your requirements and preferred contact method.</p>
+        </article>
+        <article class="process-step">
+          <span class="process-num">02</span>
+          <h3>Confirm the details</h3>
+          <p>The office confirms current availability, documents, viewing arrangements and engagement terms directly.</p>
+        </article>
+        <article class="process-step">
+          <span class="process-num">03</span>
+          <h3>Complete with confidence</h3>
+          <p>Agree the paperwork through qualified professionals and complete the transaction with proper records.</p>
+        </article>
+      </div>
     </div>
   </section>
 
-  <!-- COMPARISON -->
-  <section class="section section-alt" id="compareSection">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">COMPARE</p>
-          <h2 class="section-title">Property Comparison</h2>
-          <p class="section-lead">Select up to three properties to compare side by side.</p>
-        </div>
-      </div>
-      <div class="compare-bar" id="compareBar"></div>
-      <div class="compare-table-wrap" id="compareTableWrap"></div>
-    </div>
-  </section>
-
-  <!-- TRUST -->
-  <section class="section" id="trust">
+  <section class="section section-alt" id="trust">
     <div class="container narrow">
       <p class="eyebrow">TRUST &amp; TRANSPARENCY</p>
-      <h2 class="section-title">Make Informed Property Decisions</h2>
+      <h2 class="section-title">Make informed property decisions</h2>
       <ul class="trust-list">
         <li><strong>Understand the property details.</strong> Review size, location, and specifications carefully before committing.</li>
         <li><strong>Ask questions before making commitments.</strong> Use the enquiry form to request clarification on any listing.</li>
@@ -200,18 +171,17 @@
         <li><strong>Visit the property where appropriate.</strong> Physical inspection remains essential for significant decisions.</li>
         <li><strong>Obtain qualified legal advice when needed.</strong> Engage an advocate for transaction documentation.</li>
       </ul>
-      <p class="note">This demonstration does not claim that Kimwanya Enterprises performs legal verification or guarantees transactions. All listings shown are sample properties.</p>
+      <p class="note">Availability, documentation and transaction terms are confirmed directly by Kimwanya Enterprises. Independent legal and survey advice is recommended.</p>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section class="section section-alt" id="about">
+  <section class="section" id="about">
     <div class="container two-col">
       <div>
         <p class="eyebrow">ABOUT</p>
         <h2 class="section-title" id="aboutTitle">Kimwanya Enterprises</h2>
-        <p id="aboutText">Kimwanya Enterprises is presented here as a property business concept based in Migori County, Kenya. This page is a demonstration that can be customized with information approved by the business owner. Verified company details, services, and history should replace this placeholder copy.</p>
-        <p class="note">No founding date, director names, registration status, or performance statistics are claimed, as these have not been verified.</p>
+        <p id="aboutText">Kimwanya Enterprises connects clients with rental homes, residential properties, and commercial or agricultural land across Migori and Kuria. The firm also provides licensed auctioneering services, commercial and private debt recovery, and investigative and general agency representation.</p>
+        <p><a class="btn btn-outline" href="#contact">WORK WITH US</a></p>
       </div>
       <div class="about-image">
         <img src="assets/images/img_2.jpg" alt="Street scene in Migori County, Kenya" loading="lazy">
@@ -219,19 +189,43 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <section class="section section-alt" id="offices">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">OUR OFFICES</p>
+          <h2 class="section-title">Two offices, one service standard</h2>
+          <p class="section-lead">Confirm opening hours on WhatsApp before visiting.</p>
+        </div>
+      </div>
+      <div class="office-grid">
+        <article class="office-card">
+          <span class="office-label">MIGORI OFFICE</span>
+          <h3>Will Business Park</h3>
+          <p>Door 10, Wing A, along Migori–Rongo Road near Bansi Mega, opposite Texas Petrol Station.</p>
+          <a class="btn btn-outline btn-sm" href="https://www.google.com/maps/search/?api=1&amp;query=Will+Business+Park+Migori+Rongo+Road+Migori" target="_blank" rel="noopener noreferrer">GET DIRECTIONS</a>
+        </article>
+        <article class="office-card">
+          <span class="office-label">KEHANCHA OFFICE</span>
+          <h3>Mobhoke House</h3>
+          <p>Along Kehancha–Ntimaru Road near Father Angelo, Kehancha.</p>
+          <a class="btn btn-outline btn-sm" href="https://www.google.com/maps/search/?api=1&amp;query=Mobhoke+House+Kehancha+Ntimaru+Road" target="_blank" rel="noopener noreferrer">GET DIRECTIONS</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="contact">
     <div class="container two-col">
       <div>
         <p class="eyebrow">CONTACT</p>
         <h2 class="section-title">Property Enquiries</h2>
-        <p id="contactText">Contact details for Kimwanya Enterprises have not been verified for this demonstration. Please replace the placeholder below with approved business contact information.</p>
-        <div class="contact-placeholder">
-          <p><strong>Business display name:</strong> Kimwanya Enterprises</p>
-          <p><strong>Location:</strong> Migori County, Kenya (placeholder)</p>
-          <p><strong>Phone:</strong> [Unverified placeholder — to be confirmed]</p>
-          <p><strong>Email:</strong> [Unverified placeholder — to be confirmed]</p>
+        <p id="contactText">Talk to the Migori or Kehancha office about property, auctioneering, debt recovery or agency services. Current availability and engagement terms are confirmed directly by the office.</p>
+        <div class="contact-card">
+          <p><strong>Phone / WhatsApp:</strong> <a id="contactPhone" href="tel:+254718266967">+254 718 266967</a></p>
+          <p><strong>Office hours:</strong> Confirm directly on WhatsApp before visiting.</p>
         </div>
+        <p><a class="btn btn-primary" href="https://wa.me/254718266967?text=Hello%20Kimwanya%20Enterprises%2C%20I%20would%20like%20to%20enquire." target="_blank" rel="noopener noreferrer">CHAT ON WHATSAPP</a></p>
       </div>
       <div>
         <form id="contactForm" class="form-card" novalidate>
@@ -275,12 +269,13 @@
     </div>
     <div class="footer-links">
       <a href="index.html">Home</a>
-      <a href="property.html">Properties</a>
-      <a href="admin.html">Dashboard</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#offices">Offices</a>
+      <a href="index.html#contact">Contact</a>
     </div>
   </div>
   <div class="container footer-credit">
-    <p>Website concept designed by Thomas Hondo Chacha — Software Engineer.</p>
+    <p>Designed and developed by <a href="https://thomashondochacha.co.ke/" target="_blank" rel="noopener noreferrer">Thomas Hondo Chacha</a>.</p>
   </div>
 </footer>
 

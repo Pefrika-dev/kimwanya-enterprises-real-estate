@@ -44,7 +44,6 @@
   const similar = D.publishedProperties().filter(x => x.id !== p.id && x.category === p.category).slice(0, 3);
 
   content.innerHTML = `
-    ${p.sample ? '<div class="sample-note">This is a sample listing with illustrative details. It is not a verified Kimwanya Enterprises property.</div>' : ''}
     <div class="gallery">
       <div class="gallery-main">
         <button class="gallery-nav prev" id="gPrev" aria-label="Previous image">&#10094;</button>
@@ -87,7 +86,7 @@
       <div class="map-box">
         <div>
           <p><strong>${D.escapeHtml(p.location)}</strong></p>
-          <p class="note">Map location has not been verified for this demonstration. A location placeholder is shown instead of an embedded map.</p>
+          <p class="note">Ask the office for directions and viewing arrangements before you travel.</p>
         </div>
       </div>
     </div>
@@ -176,15 +175,19 @@
         fb.className = 'form-feedback error';
         return;
       }
-      btn.disabled = true;
-      setTimeout(() => {
-        D.addEnquiry({ name, phone, email, method, message, propertyRef: ref, source: 'property' });
-        eForm.reset();
-        document.getElementById('eRef').value = ref;
-        fb.textContent = 'Your enquiry has been saved in this demonstration. It has not been delivered to Kimwanya Enterprises.';
-        fb.className = 'form-feedback success';
-        btn.disabled = false;
-      }, 400);
+      const body = [
+        'Hello Kimwanya Enterprises, I have an enquiry about ' + ref + '.',
+        'Name: ' + name,
+        'Phone: ' + phone,
+        email ? 'Email: ' + email : '',
+        'Preferred contact: ' + method,
+        '',
+        message
+      ].filter(Boolean).join('\n');
+      const wa = (D.getSettings().phone || '+254 718 266967').replace(/[^0-9]/g, '');
+      fb.textContent = 'WhatsApp will open with your message ready to send.';
+      fb.className = 'form-feedback success';
+      window.open('https://wa.me/' + wa + '?text=' + encodeURIComponent(body), '_blank', 'noopener,noreferrer');
     });
   }
 
@@ -195,7 +198,7 @@
       <article class="card">
         <div class="card-media">
           <img src="${D.escapeHtml(p2.images && p2.images[0] ? p2.images[0] : 'assets/images/img_1.jpg')}" alt="${D.escapeHtml(p2.title)}" loading="lazy">
-          <span class="card-badge sample">SAMPLE</span>
+
         </div>
         <div class="card-body">
           <h3 class="card-title">${D.escapeHtml(p2.title)}</h3>

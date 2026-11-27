@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Dashboard | Kimwanya Enterprises (Demo)</title>
+<title>Property Register | Kimwanya Enterprises</title>
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,16 +16,15 @@
 <!-- LOGIN -->
 <div class="login-screen" id="loginScreen" hidden>
   <div class="login-card">
-    <p class="eyebrow">DEMONSTRATION ACCESS</p>
-    <h1 class="section-title" style="font-size:1.8rem">Admin Dashboard</h1>
-    <p class="note">This is a front-end demonstration only. Client-side access is not secure. Do not use real customer data. Production deployment requires server-side authentication, role-based authorization, database storage, and audit logging.</p>
+    <p class="eyebrow">STAFF ACCESS</p>
+    <h1 class="section-title" style="font-size:1.8rem">Property Register</h1>
+    <p class="note">This register is stored in this browser only. Use it to prepare listing details before publishing them to the main site.</p>
     <div class="field"><label for="loginUser">Username</label><input type="text" id="loginUser" value="admin"></div>
-    <div class="field"><label for="loginPass">Password</label><input type="text" id="loginPass" value="demo"></div>
+    <div class="field"><label for="loginPass">Password</label><input type="password" id="loginPass" autocomplete="current-password"></div>
     <button class="btn btn-primary" id="loginBtn" style="width:100%">ENTER DASHBOARD</button>
     <p style="margin-top:0.8rem;text-align:center;font-size:0.85rem">
-      <a href="#" id="guestLink" style="color:var(--color-bronze)">Or continue as demo guest</a>
     </p>
-    <p class="form-feedback" id="loginFeedback">Demo password: <strong>demo</strong> (pre-filled above).</p>
+    <p class="form-feedback" id="loginFeedback"></p>
   </div>
 </div>
 
@@ -47,34 +46,35 @@
       <button class="side-link" data-section="settings">Settings</button>
     </nav>
     <button class="side-link side-logout" id="logoutBtn">Log out</button>
+    <a class="side-credit" href="https://thomashondochacha.co.ke/" target="_blank" rel="noopener noreferrer">Designed and developed by Thomas Hondo Chacha</a>
   </aside>
 
   <div class="dash-main">
     <header class="dash-header">
       <button class="nav-toggle" id="sideToggle" aria-label="Toggle sidebar"><span></span><span></span><span></span></button>
       <h2 id="sectionTitle">Overview</h2>
-      <span class="demo-badge">DEMONSTRATION</span>
+      <span class="local-badge">LOCAL REGISTER</span>
     </header>
 
     <div class="dash-content">
       <!-- OVERVIEW -->
       <section class="dash-section" id="sec-overview">
         <div class="metrics-grid">
-          <div class="metric"><span class="metric-label">Total Sample Listings</span><span class="metric-value" id="mTotal">0</span></div>
+          <div class="metric"><span class="metric-label">Total Listings</span><span class="metric-value" id="mTotal">0</span></div>
           <div class="metric"><span class="metric-label">Published Listings</span><span class="metric-value" id="mPublished">0</span></div>
           <div class="metric"><span class="metric-label">Draft Listings</span><span class="metric-value" id="mDraft">0</span></div>
           <div class="metric"><span class="metric-label">New Enquiries</span><span class="metric-value" id="mNew">0</span></div>
           <div class="metric"><span class="metric-label">Unread Enquiries</span><span class="metric-value" id="mUnread">0</span></div>
           <div class="metric"><span class="metric-label">Favourites Saved</span><span class="metric-value" id="mFavs">0</span></div>
         </div>
-        <p class="note" style="margin-top:1.5rem">All metrics are calculated from sample data stored in this browser. They do not represent actual business performance.</p>
+        <p class="note" style="margin-top:1.5rem">Figures reflect the property register saved in this browser. Publish a listing to show it on the public site.</p>
         <div class="card" style="margin-top:1.5rem;padding:1.2rem">
           <h3 style="font-family:var(--font-serif);color:var(--color-midnight);margin:0 0 .6rem">Quick actions</h3>
           <div style="display:flex;gap:.6rem;flex-wrap:wrap">
             <button class="btn btn-primary btn-sm" data-goto="addproperty">Add Property</button>
             <button class="btn btn-outline btn-sm" data-goto="enquiries">View Enquiries</button>
             <button class="btn btn-outline btn-sm" data-goto="settings">Settings</button>
-            <button class="btn btn-outline btn-sm" id="resetDataBtn">Reset Demo Data</button>
+            <button class="btn btn-outline btn-sm" id="resetDataBtn">Reset Register</button>
           </div>
         </div>
       </section>
@@ -130,7 +130,7 @@
           <div class="field"><label for="pfAmenities">Amenities (comma separated)</label><input type="text" id="pfAmenities" placeholder="Parking, Water, Electricity"></div>
           <div class="field"><label for="pfImages">Image URLs (one per line)</label><textarea id="pfImages" rows="3" placeholder="assets/images/img_3.jpg"></textarea></div>
           <div class="field"><label><input type="checkbox" id="pfFeatured"> Featured listing</label></div>
-          <div class="field"><label><input type="checkbox" id="pfSample" checked> Sample listing (illustrative)</label></div>
+          <div class="field"><label><input type="checkbox" id="pfSample"> Indicative listing</label></div>
           <div style="display:flex;gap:.6rem;margin-top:1rem">
             <button type="submit" class="btn btn-primary" id="pfSubmit">SAVE PROPERTY</button>
             <button type="button" class="btn btn-outline" id="pfReset">CLEAR</button>
@@ -168,7 +168,7 @@
             <tbody></tbody>
           </table>
         </div>
-        <p class="note" style="margin-top:1rem">Favourites are stored per browser and are not user-attributed in this demonstration.</p>
+        <p class="note" style="margin-top:1rem">Favourites are stored per browser and are not linked to individual visitors.</p>
       </section>
 
       <!-- CATEGORIES -->
@@ -206,14 +206,19 @@
           <div class="field"><label for="sBusinessName">Business display name</label><input type="text" id="sBusinessName"></div>
           <div class="field"><label for="sLocation">Location</label><input type="text" id="sLocation"></div>
           <div class="field"><label for="sCurrency">Currency</label><input type="text" id="sCurrency"></div>
-          <div class="field"><label for="sPhone">Phone placeholder</label><input type="text" id="sPhone"></div>
-          <div class="field"><label for="sEmail">Email placeholder</label><input type="text" id="sEmail"></div>
+          <div class="field"><label for="sPhone">Phone</label><input type="text" id="sPhone"></div>
+          <div class="field"><label for="sEmail">Email</label><input type="text" id="sEmail"></div>
+          <div class="field"><label for="sAddress">Physical address (Migori)</label><input type="text" id="sAddress"></div>
+          <div class="field"><label for="sKehancha">Kehancha branch address</label><input type="text" id="sKehancha"></div>
+          <div class="field"><label for="sLandmark">Landmark</label><input type="text" id="sLandmark"></div>
+          <div class="field"><label for="sOffices">Offices</label><input type="text" id="sOffices"></div>
+          <div class="field"><label for="sFacebook">Facebook URL</label><input type="text" id="sFacebook"></div>
           <div class="field"><label for="sTheme">Theme preference</label>
-            <select id="sTheme"><option value="light">Light</option><option value="dark">Dark (placeholder)</option></select></div>
+            <select id="sTheme"><option value="light">Light</option><option value="dark">Dark</option></select></div>
           <button type="submit" class="btn btn-primary btn-sm">SAVE SETTINGS</button>
           <p class="form-feedback" id="settingsFeedback"></p>
         </form>
-        <p class="note" style="margin-top:1rem">These settings apply only to this demonstration.</p>
+        <p class="note" style="margin-top:1rem">These settings apply to this browser register.</p>
       </section>
     </div>
   </div>

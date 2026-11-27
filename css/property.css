@@ -42,7 +42,6 @@
 
 .fav-row { display: flex; gap: 0.8rem; flex-wrap: wrap; align-items: center; }
 
-.sample-note { background: #FBF3E3; border: 1px solid #E6D6B3; padding: 0.8rem 1rem; font-size: 0.82rem; color: #6B5A2A; margin-bottom: 1.5rem; }
 
 @media (max-width: 900px) {
   .gallery { grid-template-columns: 1fr; }
